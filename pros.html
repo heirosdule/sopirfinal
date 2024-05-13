@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track and Strand Selection</title>
+</head>
+<body>
+<h2>Select Track and Strand</h2>
+<form id="trackForm">
+  <input type="radio" id="academicTrack" name="track" value="academic" onchange="updateStrandOptions()"> Academic Track<br>
+  <input type="radio" id="tvlTrack" name="track" value="tvl" onchange="updateStrandOptions()"> TVL Track<br>
+  <br>
+  <label for="strand">Select Strand:</label>
+  <select id="strand" name="strand">
+    <!-- Options will be dynamically updated -->
+  </select>
+</form>
+
+<script>
+function updateStrandOptions() {
+  var academicTrack = document.getElementById("academicTrack").checked;
+  var tvlTrack = document.getElementById("tvlTrack").checked;
+  var strandSelect = document.getElementById("strand");
+  strandSelect.innerHTML = ""; // Clear previous options
+  
+  if (academicTrack) {
+    var academicStrands = ["HUMSS", "STEM"];
+    academicStrands.forEach(function(strand) {
+      var option = document.createElement("option");
+      option.text = strand;
+      strandSelect.add(option);
+    });
+  } else if (tvlTrack) {
+    var tvlStrands = ["TVL-ICT", "TVL-HE", "TVL-PSSS"];
+    tvlStrands.forEach(function(strand) {
+      var option = document.createElement("option");
+      option.text = strand;
+      strandSelect.add(option);
+    });
+  }
+}
+</script>
+
+</body>
+</html>

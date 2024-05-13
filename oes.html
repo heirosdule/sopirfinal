@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cgeahs.onlinekupalan</title>
+    <style>
+        /* CSS Code */
+        /* Import Google font - Poppins */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            height: 100%;
+            font-family: "Times New Roman", Times, serif; /* Apply Times New Roman font */
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            background: bisque; /* Set background to bisque */  
+            padding: 20px; /* Added padding for spacing */
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+        .row {
+            width: 1300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden; /* Hide content that exceeds the height */
+            background-color: bisque;
+            border: 5px solid #800000; /* Border design */
+            border-radius: 25px; /* Border radius */
+            box-shadow: 0 0 20px #800000; /* 3D effect */
+            margin-top: 10px; /* Added padding for spacing */
+        }
+        .picture {
+            position: absolute;
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            top: 5px;
+        }
+        .left {
+            left: 40px;
+        }
+        .right {
+            right: 40px;
+        }
+        .text {
+            font-size: 25px;
+            text-align: center; /* Center the text */
+            margin: 0; /* Remove default margin */
+            padding: 0 20px; /* Add some padding for better spacing */
+            height: 110px; /* Adjust size as needed */
+        }
+        .column-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1500px; /* Adjust maximum width as needed */
+            height: auto; /* Set height to auto */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 1300px;
+            height: 100%; /* Set height to 1000px */
+            border: 5px solid #800000; /* Border design */
+            border-radius: 15px; /* Border radius */
+            box-shadow: 0 0 20px #800000; /* 3D effect */
+            overflow: hidden; /* Hide overflow */
+        }
+        .container .steps {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            border-top: 0px solid #ccc; /* Added border to timeline */
+            padding-top: 10px; /* Added padding for spacing */
+            padding-right: 10px; /* Added padding for spacing */
+            margin-bottom: 0px; 
+        }
+        .steps .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            color: #999;
+            font-size: 100%; /* Reduced font size */
+            font-weight: 500;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #e0e0e0;
+            transition: all 200ms ease;
+            transition-delay: 0s;
+            color: #800000; /* Changed font color */
+        }
+        .steps .circle.active {
+            transition-delay: 100ms;
+            border-color: #800000;
+            color: #800000;
+            margin-left: 10px;
+            margin-right: 2px;
+        }
+        .steps .progress-bar {
+            position: absolute;
+            height: 4px;
+            width: 97%;
+            background: #e0e0e0;
+            z-index: -1;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .progress-bar .indicator {
+            position: absolute;
+            height: 100%;
+            width: 35%;
+            background: #800000;
+            transition: all 300ms ease;
+        }
+        .container .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center; /* Center align buttons */
+            padding: 20px; /* Added padding for spacing */
+            border-top: 2px solid #800000; /* Added border to separate buttons */
+
+            margin-top: auto; /* Added margin to push buttons to bottom */
+        }
+        .buttons button {
+            padding: 8px 25px;
+            background: #800000;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            transition: all 200ms linear;
+        }
+        .buttons button:active {
+            transform: scale(0.97);
+        }
+        .buttons button:disabled {
+            background: #800000;
+            cursor: not-allowed;
+            opacity: 0.5; /* Reduced opacity for disabled buttons */
+        }
+        .hidden {
+            display: none;
+        }
+        .content-frame {
+            flex-grow: 2; /* Make the content-frame grow to fill the available space */
+            overflow-y: auto; /* Enable vertical scroll if content exceeds frame height */
+        }
+        .frame {
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow: hidden; /* Hide scroll bars */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    justify-content: center; /* Center align items */
+}
+        iframe {
+            width: 100%;
+            margin-top: auto;
+            height: 100%;
+            border: none;
+        }
+        .frame * {
+            font-size: 20px;
+            text-align: center;
+            color: #800000;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .frame label {
+            display: inline-block;
+            width: 200px; /* Adjust width as needed */
+            text-align: center;
+            margin-right: 20px; /* Adjust margin as needed */
+        }
+
+        .frame input[type="checkbox"],
+        .frame input[type="file"] {
+            display: inline-block;
+            width: auto;
+            margin-left: 0px; /* Adjust margin as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <img src="https://i.ibb.co/98t9qxX/download-removebg-preview.png?fbclid=IwAR3DWSLdP__wyYPx9ustfRhWH2OGS0E161m_-T899C6ili_oAUCCj6bHGEQ" alt="Left Picture" class="picture left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Seal_of_the_Department_of_Education_of_the_Philippines.png" alt="Right Picture" class="picture right">
+            <p class="text">CAMP GENERAL EMILIO AGUINALDO HIGH SCHOOL   <br>    ONLINE ENROLLMENT SYSTEM <br> J367+XQM, Segundo Ave, Quezon City, 1110 Metro Manila</p>
+        </div>
+    </header>
+    <div class="column-container">
+        <div class="container">
+            <div class="steps">
+                <span class="circle active">1</span>
+                <span class="circle active">2</span>
+                <span class="circle">3</span>
+                <span class="circle">4</span>
+                <div class="progress-bar">
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            <div class="content-frame">
+                <div class="frame" id="frame1">
+                    <h2>Select Grade Level</h2>
+    
+                    <input type="radio" id="juniorHigh" name="gradeLevel" value="junior" onchange="updateVisibility()"> Junior High<br>
+                    <input type="radio" id="seniorHigh" name="gradeLevel" value="senior" onchange="updateVisibility()"> Senior High<br>
+            
+                    <div id="gradeLevelOptions" style="display: none;">
+                        <div id="juniorHighOptions" style="display: none;">
+                            <label for="juniorHighGrade">Select Grade:</label>
+                            <select id="juniorHighGrade" name="juniorHighGrade">
+                                <option value="7">Grade 7</option>
+                                <option value="8">Grade 8</option>
+                                <option value="9">Grade 9</option>
+                                <option value="10">Grade 10</option>
+                            </select>
+                        </div>
+                        <div id="seniorHighOptions" style="display: none;">
+                            <label for="seniorHighGrade">Select Grade:</label>
+                            <select id="seniorHighGrade" name="seniorHighGrade">
+                                <option value="11">Grade 11</option>
+                                <option value="12">Grade 12</option>
+                            </select>
+                        </div>
+                    </div>
+            
+                    <div id="trackStrandSection" style="display: none;">  
+                        <h2>Select Track and Strand</h2>
+                        <form id="trackForm">
+                            <input type="radio" id="academicTrack" name="track" value="academic" onchange="updateStrandOptions()"> Academic Track<br>
+                            <input type="radio" id="tvlTrack" name="track" value="tvl" onchange="updateStrandOptions()"> TVL(Technical-Vocational-Livelihood Strand) Track<br>
+                            <br>
+                            <label for="strand">Select Strand:</label>
+                            <select id="strand" name="strand"> <!-- Options will be dynamically updated -->
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev">Prev</button>
+                <button id="next">Next</button>
+                <button id="complete" style="display: none;">Complete</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateVisibility() {
+            var juniorHighChecked = document.getElementById("juniorHigh").checked;
+            var seniorHighChecked = document.getElementById("seniorHigh").checked;
+            var gradeLevelOptions = document.getElementById("gradeLevelOptions");
+            var juniorHighOptions = document.getElementById("juniorHighOptions");
+            var seniorHighOptions = document.getElementById("seniorHighOptions");
+
+            if (juniorHighChecked) {
+                gradeLevelOptions.style.display = "block";
+                juniorHighOptions.style.display = "block";
+                seniorHighOptions.style.display = "none";
+                document.getElementById("trackStrandSection").style.display = "none"; // Hide track and strand section
+            } else if (seniorHighChecked) {
+                gradeLevelOptions.style.display = "block";
+                juniorHighOptions.style.display = "none";
+                seniorHighOptions.style.display = "block";
+                updateStrandOptions(); // Show track and strand options
+                document.getElementById("trackStrandSection").style.display = "block"; // Show track and strand section
+            } else {
+                gradeLevelOptions.style.display = "none";
+                juniorHighOptions.style.display = "none";
+                seniorHighOptions.style.display = "none";
+                document.getElementById("trackStrandSection").style.display = "none"; // Hide track and strand section
+            }
+        }
+
+        function updateStrandOptions() {
+            var academicTrack = document.getElementById("academicTrack").checked;
+            var tvlTrack = document.getElementById("tvlTrack").checked;
+            var strandSelect = document.getElementById("strand");
+            strandSelect.innerHTML = ""; // Clear previous options
+
+            if (academicTrack) {
+                var academicStrands = ["HUMSS(Humanities and Social Sciences)", "STEM(Science, Technology, Engineering, and Mathematics)"];
+                academicStrands.forEach(function (strand) {
+                    var option = document.createElement("option");
+                    option.text = strand;
+                    strandSelect.add(option);
+                });
+            } else if (tvlTrack) {
+                var tvlStrands = ["TVL-ICT(Information and Communication Technologies)", "TVL-HE(Home Economics)", "TVL-PSSS(Public, Safety and Services)"];
+                tvlStrands.forEach(function (strand) {
+                    var option = document.createElement("option");
+                    option.text = strand;
+                    strandSelect.add(option);
+                });
+            }
+        }
+
+        function nextFrame() {
+            // Check if neither Junior High nor Senior High is selected
+            var juniorHighChecked = document.getElementById("juniorHigh").checked;
+            var seniorHighChecked = document.getElementById("seniorHigh").checked;
+
+            // Check if both Junior High and Senior High are not selected
+            if (!juniorHighChecked && !seniorHighChecked) {
+                // Display an alert if neither Junior High nor Senior High is selected
+                alert("Please select either Junior High or Senior High before proceeding.");
+                return; // Stop execution if neither option is selected
+            }
+
+            // Check if Senior High is selected, Grade 12 is selected, and TVL-ICT or TVL-HE is chosen
+            var gradeSelect = document.getElementById("seniorHighGrade");
+            var selectedGrade = gradeSelect.options[gradeSelect.selectedIndex].value;
+            var strandSelect = document.getElementById("strand");
+            var selectedStrand = strandSelect.options[strandSelect.selectedIndex].text;
+
+            // Check if any of the options is blank
+            if (!seniorHighChecked || selectedGrade !== "12" || (!selectedStrand || selectedStrand.trim() === "")) {
+                // Display an alert if any of the options is blank
+                alert("Please fill in all the required fields.");
+                return; // Stop execution if any option is blank
+            }
+
+            // Check for specific conditions and redirect accordingly
+            if (selectedStrand === "TVL-ICT(Information and Communication Technologies)") {
+                // Redirect to parentsform.html if TVL-ICT is chosen
+                window.location.href = "parentsform.html";
+            } else if (selectedStrand === "TVL-HE(Home Economics)") {
+                // Redirect to 12HE.html if TVL-HE is chosen
+                window.location.href = "12HE.html";
+            } else {
+                // Handle other cases if needed
+                // For now, redirect to the next frame if conditions are not met
+                window.location.href = "parentsform.html";
+            }
+        }
+
+        function prevFrame() {
+            // Redirect to the previous HTML file
+            window.location.href = "register.html";
+        }
+
+        document.getElementById("prev").addEventListener("click", prevFrame);
+        document.getElementById("next").addEventListener("click", nextFrame);
+    </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cgeahs.onlinekupalan</title>
+    <style>
+        /* CSS Code */
+        /* Import Google font - Poppins */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            height: 100%;
+            font-family: "Times New Roman", Times, serif; /* Apply Times New Roman font */
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            background: bisque; /* Set background to bisque */  
+            padding: 20px; /* Added padding for spacing */
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+        .row {
+            width: 1300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden; /* Hide content that exceeds the height */
+            background-color: bisque;
+            border: 5px solid #800000; /* Border design */
+            border-radius: 25px; /* Border radius */
+            box-shadow: 0 0 20px #800000; /* 3D effect */
+            margin-top: 10px; /* Added padding for spacing */
+        }
+        .picture {
+            position: absolute;
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            top: 5px;
+        }
+        .left {
+            left: 40px;
+        }
+        .right {
+            right: 40px;
+        }
+        .text {
+            font-size: 25px;
+            text-align: center; /* Center the text */
+            margin: 0; /* Remove default margin */
+            padding: 0 20px; /* Add some padding for better spacing */
+            height: 110px; /* Adjust size as needed */
+        }
+        .column-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1500px; /* Adjust maximum width as needed */
+            height: auto; /* Set height to auto */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 1300px;
+            height: 100%; /* Set height to 1000px */
+            border: 5px solid #800000; /* Border design */
+            border-radius: 15px; /* Border radius */
+            box-shadow: 0 0 20px #800000; /* 3D effect */
+            overflow: hidden; /* Hide overflow */
+        }
+        .container .steps {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            border-top: 0px solid #ccc; /* Added border to timeline */
+            padding-top: 10px; /* Added padding for spacing */
+            padding-right: 10px; /* Added padding for spacing */
+            margin-bottom: 0px; 
+        }
+        .steps .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            color: #999;
+            font-size: 100%; /* Reduced font size */
+            font-weight: 500;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #e0e0e0;
+            transition: all 200ms ease;
+            transition-delay: 0s;
+            color: #800000; /* Changed font color */
+        }
+        .steps .circle.active {
+            transition-delay: 100ms;
+            border-color: #800000;
+            color: #800000;
+            margin-left: 10px;
+            margin-right: 2px;
+        }
+        .steps .progress-bar {
+            position: absolute;
+            height: 4px;
+            width: 97%;
+            background: #e0e0e0;
+            z-index: -1;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .progress-bar .indicator {
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            background: #800000;
+            transition: all 300ms ease;
+        }
+        .container .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center; /* Center align buttons */
+            padding: 20px; /* Added padding for spacing */
+            border-top: 2px solid #800000; /* Added border to separate buttons */
+            margin-top: auto; /* Added margin to push buttons to bottom */
+        }
+        .buttons button {
+            padding: 8px 25px;
+            background: #800000;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            transition: all 200ms linear;
+        }
+        .buttons button:active {
+            transform: scale(0.97);
+        }
+        .buttons button:disabled {
+            background: #800000;
+            cursor: not-allowed;
+            opacity: 0.5; /* Reduced opacity for disabled buttons */
+        }
+        .hidden {
+            display: none;
+        }
+        .content-frame {
+            flex-grow: 2; /* Make the content-frame grow to fill the available space */
+            overflow-y: auto; /* Enable vertical scroll if content exceeds frame height */
+        }
+        .frame {
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow: hidden; /* Hide scroll bars */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    justify-content: center; /* Center align items */
+}
+        iframe {
+            width: 100%;
+            margin-top: auto;
+            height: 100%;
+            border: none;
+        }
+        .frame * {
+            font-size: 20px;
+            text-align: center;
+            color: #800000;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .frame label {
+            display: inline-block;
+            width: 200px; /* Adjust width as needed */
+            text-align: center;
+            margin-right: 20px; /* Adjust margin as needed */
+        }
+
+        .frame input[type="checkbox"],
+        .frame input[type="file"] {
+            display: inline-block;
+            width: auto;
+            margin-left: 0px; /* Adjust margin as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <img src="https://i.ibb.co/98t9qxX/download-removebg-preview.png?fbclid=IwAR3DWSLdP__wyYPx9ustfRhWH2OGS0E161m_-T899C6ili_oAUCCj6bHGEQ" alt="Left Picture" class="picture left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Seal_of_the_Department_of_Education_of_the_Philippines.png" alt="Right Picture" class="picture right">
+            <p class="text">CAMP GENERAL EMILIO AGUINALDO HIGH SCHOOL   <br>    ONLINE ENROLLMENT SYSTEM <br> J367+XQM, Segundo Ave, Quezon City, 1110 Metro Manila</p>
+        </div>
+    </header>
+    <div class="column-container">
+        <div class="container">
+            <div class="steps">
+                <span class="circle active">1</span>
+                <span class="circle">2</span>
+                <span class="circle">3</span>
+                <span class="circle">4</span>
+                <div class="progress-bar">
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            <div class="content-frame">
+                <div class="frame" id="frame1">
+                    <form id="emailForm">
+                        <span id="emailMessage" style="color: red;"></span><br><br>
+                        <span id="passwordMessage" style="color: red;"></span><br><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br><br>
+                        
+                        <label for="confirmEmail">Confirm Email:</label>
+                        <input type="email" id="confirmEmail" name="confirmEmail" required oninput="validateEmail()"><br><br>
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required><br><br>
+                        
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required oninput="validatePassword()"><br><br>
+                        
+                    </form>
+                </div>
+            
+                
+                <!-- Other frames -->
+            </div>
+            <div class="buttons">
+                <button id="prev" disabled>Prev</button>
+                <button id="next" onclick="nextFrame()">Next</button>
+                <button id="complete" style="display: none;">Complete</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function validateEmail() {
+            var email = document.getElementById("email");
+            var confirmEmail = document.getElementById("confirmEmail");
+            var message = document.getElementById("emailMessage");
+
+            if (email.value !== confirmEmail.value) {
+                confirmEmail.setCustomValidity("Emails do not match");
+                message.innerHTML = "Emails do not match";
+            } else {
+                confirmEmail.setCustomValidity("");
+                message.innerHTML = "";
+            }
+        }
+
+        function validatePassword() {
+            var password = document.getElementById("password");
+            var confirmPassword = document.getElementById("confirmPassword");
+            var message = document.getElementById("passwordMessage");
+
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity("Passwords do not match");
+                message.innerHTML = "Passwords do not match";
+            } else {
+                confirmPassword.setCustomValidity("");
+                message.innerHTML = "";
+            }
+        }
+
+        function nextFrame() {
+            // Redirect to the next page
+            window.location.href = "StudentInfoForm.html";
+        }
+        function nextFrame() {
+    // Check if all required fields are filled
+    var email = document.getElementById("email").value;
+    var confirmEmail = document.getElementById("confirmEmail").value;
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (email.trim() === '' || confirmEmail.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+        alert("Please fill in all required fields.");
+        return; // Prevent navigation if any required field is empty
+    }
+
+    // Redirect to the next page
+    window.location.href = "StudentInfoForm.html";
+}
+    </script>
+</body>
+</html>
